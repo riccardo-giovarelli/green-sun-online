@@ -1,28 +1,20 @@
 import { getHomeData } from "./page.lib";
+import HeroVideo from "@/components/HeroVideo/HeroVideo";
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-
   const strapiResponse = await getHomeData(locale);
-
-  if (!strapiResponse || !strapiResponse.data) {
-    return (
-      <div className="flex h-full flex-col items-center justify-center p-24">
-        <h1 className="text-2xl text-red-500">Dati non trovati per la lingua: {locale}</h1>
-        <p>Assicurati che Strapi sia acceso e i permessi siano impostati su Public.</p>
-      </div>
-    );
-  }
-
-  const homeData = strapiResponse.data;
+  const homeData = strapiResponse?.data;
 
   return (
-    <div className="flex h-full flex-col items-center justify-center p-24 text-center">
-      <h1 className="text-5xl font-bold mb-8">{homeData.title || "Nessun titolo inserito in Strapi"}</h1>
-
-      <div className="p-4 bg-gray-100 rounded-lg text-sm text-gray-600">
-        Stai visualizzando la versione: <span className="font-bold uppercase">{locale}</span>
-      </div>
+    <div className="flex flex-col min-h-screen">
+      <HeroVideo />
+      <section className="container mx-auto py-24 px-4 text-center">
+        <h2 className="text-3xl font-bold mb-4">{homeData?.title || "Home"}</h2>
+        <p className="text-gray-600">
+          Scorrendo verso il basso, l&apos;Header rimarrà in alto e il video sparirà gradualmente.
+        </p>
+      </section>
     </div>
   );
 }

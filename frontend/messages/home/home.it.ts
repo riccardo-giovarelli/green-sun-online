@@ -1,5 +1,8 @@
 const lang = {
-  title: "Green Sun by Olga",
+  home: "Home",
+  gallery: "Galleria",
+  welcome: "Benvenuti",
+  subtitle: "Olga Artwork",
 };
 
 export default lang;
