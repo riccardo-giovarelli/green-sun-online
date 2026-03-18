@@ -23,7 +23,7 @@ export default function Header() {
               {t("Home.home")}
             </Link>
             <Link
-              href="/paintings"
+              href="/gallery"
               className="text-sm font-medium uppercase tracking-wide opacity-90 hover:opacity-100 hover:text-green-600 transition-all"
             >
               {t("Home.gallery")}

@@ -467,6 +467,43 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiGalleryGallery extends Struct.SingleTypeSchema {
+  collectionName: 'galleries';
+  info: {
+    displayName: 'Gallery';
+    pluralName: 'galleries';
+    singularName: 'gallery';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::gallery.gallery'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomeHome extends Struct.SingleTypeSchema {
   collectionName: 'homes';
   info: {
@@ -1065,6 +1102,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::gallery.gallery': ApiGalleryGallery;
       'api::home.home': ApiHomeHome;
       'api::painting.painting': ApiPaintingPainting;
       'plugin::content-releases.release': PluginContentReleasesRelease;
