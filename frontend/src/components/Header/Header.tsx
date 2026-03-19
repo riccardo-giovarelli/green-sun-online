@@ -28,6 +28,12 @@ export default function Header() {
             >
               {t("Home.gallery")}
             </Link>
+            <Link
+              href="/contact"
+              className="text-sm font-medium uppercase tracking-wide opacity-90 hover:opacity-100 hover:text-green-600 transition-all"
+            >
+              {t("Home.contact")}
+            </Link>
           </nav>
           {/* Language selector */}
           <div className="absolute right-0 flex items-center gap-3 text-xs font-semibold opacity-70 group-hover:opacity-100 transition-opacity">

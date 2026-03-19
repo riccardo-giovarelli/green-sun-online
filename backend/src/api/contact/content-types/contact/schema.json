@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "galleries",
+  "collectionName": "contacts",
   "info": {
-    "singularName": "gallery",
-    "pluralName": "galleries",
-    "displayName": "Gallery"
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "Contact"
   },
   "options": {
     "draftAndPublish": true
