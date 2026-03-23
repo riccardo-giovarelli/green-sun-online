@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "@/lib/api/api.lib";
+import { API_BASE_URL } from "@/lib/api/constants";
 
 /**
  * Fetches localized contact page data from the backend.
