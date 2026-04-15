@@ -547,7 +547,7 @@ export interface ApiArtworkArtwork extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     updatedAt: Schema.Attribute.DateTime;
