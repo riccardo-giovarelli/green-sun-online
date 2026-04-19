@@ -1,3 +1,5 @@
+import Header from "@/components/Header/Header";
+import { ThemeProvider } from "@/components/ThemeProvider/ThemeProvider";
 import { routing } from "@/i18n/routing";
 import QueryProvider from "@/providers/QueryProvider";
 import type { Metadata } from "next";
@@ -6,7 +8,6 @@ import { getMessages } from "next-intl/server";
 import { Geist, Geist_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import "../globals.css";
-import Header from "@/components/Header/Header";
 
 // Configure custom fonts
 const geistSans = Geist({
@@ -45,12 +46,14 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex min-h-screen flex-col`}>
         <NextIntlClientProvider messages={messages}>
           <QueryProvider>
-            <Header />
-            <main className="flex-1">{children}</main>
+            <ThemeProvider>
+              <Header />
+              <main className="flex-1">{children}</main>
+            </ThemeProvider>
           </QueryProvider>
         </NextIntlClientProvider>
       </body>

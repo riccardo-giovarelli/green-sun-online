@@ -3,6 +3,7 @@
 import { Link, usePathname } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { getHeaderClasses, getLinkClasses } from "./Header.lib";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
 export default function Header() {
   const t = useTranslations();
@@ -34,15 +35,19 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* Language selector */}
-          <div className="absolute right-0 flex items-center gap-3 text-xs font-semibold opacity-70 group-hover:opacity-100 transition-opacity">
-            <Link href="/" locale="it" className="hover:text-gray-400 transition-colors">
-              IT
-            </Link>
-            <span>|</span>
-            <Link href="/" locale="en" className="hover:text-gray-400 transition-colors">
-              EN
-            </Link>
+          <div className="absolute right-0 flex items-center gap-6 opacity-70 group-hover:opacity-100 transition-opacity">
+            <ThemeToggle />
+
+            {/* Language selector */}
+            <div className="flex items-center gap-3 text-xs font-semibold">
+              <Link href="/" locale="it" className="hover:text-gray-400 transition-colors">
+                IT
+              </Link>
+              <span>|</span>
+              <Link href="/" locale="en" className="hover:text-gray-400 transition-colors">
+                EN
+              </Link>
+            </div>
           </div>
         </div>
       </div>
