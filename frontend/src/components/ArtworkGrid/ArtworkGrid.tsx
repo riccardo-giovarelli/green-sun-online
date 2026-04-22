@@ -54,18 +54,9 @@ export default function ArtworkGrid() {
               <h3 className="text-xl font-bold text-gray-900 mb-1">{artwork.title}</h3>
 
               <p className="text-sm text-gray-500 mb-4 uppercase tracking-wider">
-                {artwork.medium} • {artwork.dimensions}
+                {artwork.medium}
+                {artwork.dimensions && ` • ${artwork.dimensions}`}
               </p>
-
-              <div className="mt-auto flex items-center justify-between">
-                <span className="text-lg font-medium text-green-700">€ {artwork.price}</span>
-
-                {!artwork.isAvailable && (
-                  <span className="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold uppercase rounded-full">
-                    {t("Artwork.sold")}
-                  </span>
-                )}
-              </div>
             </div>
           </div>
         );
